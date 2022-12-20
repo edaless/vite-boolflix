@@ -35,11 +35,13 @@ export default {
                                         msg.original_language === 'xx' ? 'gb' :
             // The Adventures of André and Wally B., secondo wikipedia, è in inglese ma l'api dice che è in xx
             msg.original_language) + '.png'" :alt="
-    msg.original_language === 'ta' ? 'tamil' :
+                                    msg.original_language === 'ta' ? 'Tamil' :
+                                        msg.original_language === 'te' ? 'Telugu' :
+                                            msg.original_language
                                 ">
             <!-- 
-                se proprio non c'è la bandiera scrivo la sigla (:alt="msg.original_language"),
-                se invece è una delle 400 lingue indiane che ho riscontrato:
+                se proprio non c'è la bandiera scrivo la sigla (:alt= msg.original_language ),
+                se invece è una delle lingue indiane che ho riscontrato:
                 la scrivo per intero
             -->
         </div>
