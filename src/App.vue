@@ -19,26 +19,28 @@ export default {
 
   methods: {
     getMovies() {
+      if (this.ricerca !== "") {
 
 
+        axios
+          .get(store.apiURL + store.aggiunta + this.ricerca)
+          .then(res => {
+            // riempo l'array dello store con i risultati della chiamata api
+            store.movieList = res.data.results;
 
-      axios
-        .get(store.apiURL + store.aggiunta + "pirati+dei+caraibi")
-        .then(res => {
-          // riempo l'array dello store con i risultati della chiamata api
-          store.movieList = res.data.results;
-          // console.log(store.movieList.length);
-          console.log(store.movieList);
-        })
-        .catch(err => {
-          console.log("errori", err)
-        });
+          })
+          .catch(err => {
+            console.log("errori", err)
+          });
 
+        this.ricerca = "";
+      };
     }
-  },
-  mounted() {
-    this.getMovies();
   }
+  // ,
+  // mounted() {
+
+  // }
 }
 
 
@@ -48,11 +50,17 @@ export default {
 </script>
 
 <template>
-  <input type="text" v-model="ricerca">
+  <input type="text" v-model="this.ricerca" @keyup.enter="getMovies">
+  <button @click="getMovies">ottieni</button>
+
+
 
   <Film v-for="movie in store.movieList" :msg="movie" />
-  <!-- <Film v-for="(movie, index) in store.movieList" :msg="store.movieList[index]" /> -->
+
 </template>
+
+
+
 
 <style lang="scss" scoped>
 
