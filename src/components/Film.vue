@@ -1,8 +1,12 @@
 <script>
+
 import Lingua from './Lingua.vue';
 
 export default {
     name: "Film",
+    components: {
+        Lingua
+    },
     props: ["msg"]
 
 
@@ -21,7 +25,7 @@ export default {
         <span>{{ msg.title }}</span>
         <span>{{ msg.original_title }}</span>
         <Lingua :sigla="msg.original_language" />
-        <Lingua />
+
 
 
 
