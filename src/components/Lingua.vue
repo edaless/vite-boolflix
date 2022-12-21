@@ -39,13 +39,19 @@ export default {
     sigla === 'ta' ? 'Tamil' :
         sigla === 'te' ? 'Telugu' :
             sigla
-" :class="sigla === 'en' ? 'inglese' : ''">
+" :class="
+    sigla === 'en' ? 'inglese' :
+        sigla === 'sh' ? 'inglese' :
+            sigla === 'xx' ? 'inglese' :
+''">
         <!-- 
                 se proprio non c'è la bandiera scrivo la sigla (:alt= sigla ),
                 se invece è una delle lingue indiane che ho riscontrato:
                 la scrivo per intero
             -->
-        <!-- la bandiera inglese è un po' schiacciata, le aggiungo la classe: inglese -->
+        <!-- la bandiera inglese è un po' schiacciata, le aggiungo la classe: inglese
+             sh non lo so, tale film "H-8" è in lingua sh, e il sito delle bandiere lo prende come inglese.
+        -->
     </div>
 
 

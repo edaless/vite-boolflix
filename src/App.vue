@@ -81,9 +81,9 @@ export default {
 
 
 
-  <Film v-for="movie in (store.movieList)" :msg="movie" />
+  <Film v-for="movie in (store.movieList)" :msg="movie" :tipo="'film'" />
   <!-- anche per le serie uso il componente che si chiama Film -->
-  <Film v-for="serie in (store.serieList)" :msg="serie" />
+  <Film v-for="movie in (store.serieList)" :msg="movie" :tipo="'serie'" />
 
 </template>
 

@@ -7,7 +7,7 @@ export default {
     components: {
         Lingua
     },
-    props: ["msg"]
+    props: ["msg", "tipo"]
 
 
 }
@@ -20,27 +20,18 @@ export default {
 <template>
     <span class="container">
 
+        <span>{{ tipo === "film" ? msg.title : msg.name }}</span>
+        <span>{{ tipo === "film" ? msg.original_title : msg.original_name }}</span>
 
-
-        <span>{{ msg.title }}</span>
-        <span>{{ msg.original_title }}</span>
         <Lingua :sigla="msg.original_language" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <span>{{ msg.vote_average }}</span>
+
+
+
+
+        <!-- span per stampare se un elemento è un film o serie. Può tornare utile -->
+        <span>{{ tipo }}</span>
 
     </span>
 </template>
@@ -51,16 +42,5 @@ export default {
     margin: 20px;
     display: flex;
     flex-direction: column;
-}
-
-
-
-.language {
-    width: 20px;
-
-    img {
-        width: 100%;
-
-    }
 }
 </style>
