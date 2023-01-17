@@ -26,16 +26,16 @@ export default {
                 in cui devo aggiungere la sigla e .png
             -->
         <img :src="'https://gds.baguette.engineering/flags/' + (
-            sigla === 'en' ? 'gb' :
-                sigla === 'ja' ? 'jp' :
-                    sigla === 'da' ? 'dk' :
-                        sigla === 'cs' ? 'cz' :
-                            sigla === 'ko' ? 'kr' :
-                                sigla === 'hi' ? 'in' :
-                                    sigla === 'xx' ? 'gb' :
-                                        // The Adventures of André and Wally B., secondo wikipedia, è in inglese ma l'api dice che è in xx
-                                        sigla
-        ) + '.png'" :alt="
+    sigla === 'en' ? 'gb' :
+        sigla === 'ja' ? 'jp' :
+            sigla === 'da' ? 'dk' :
+                sigla === 'cs' ? 'cz' :
+                    sigla === 'ko' ? 'kr' :
+                        sigla === 'hi' ? 'in' :
+                            sigla === 'xx' ? 'gb' :
+                                // The Adventures of André and Wally B., secondo wikipedia, è in inglese ma l'api dice che è in xx
+                                sigla
+) + '.png'" :alt="
     sigla === 'ta' ? 'Tamil' :
         sigla === 'te' ? 'Telugu' :
             sigla
@@ -43,7 +43,7 @@ export default {
     sigla === 'en' ? 'inglese' :
         sigla === 'sh' ? 'inglese' :
             sigla === 'xx' ? 'inglese' :
-''">
+                ''">
         <!-- 
                 se proprio non c'è la bandiera scrivo la sigla (:alt= sigla ),
                 se invece è una delle lingue indiane che ho riscontrato:
@@ -61,20 +61,13 @@ export default {
 </template>
 
 <style  lang="scss"  scoped>
-.container {
-
-    // background-color: aqua;
-    // margin: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
 .language {
+    // margin-top: 10px;
     width: 20px;
     // height: 20px;
     // background-color: red;
+    display: flex;
+    align-items: center;
 
     img {
         width: 100%;

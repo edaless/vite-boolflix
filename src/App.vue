@@ -79,11 +79,13 @@ export default {
   <input type="text" v-model="this.ricerca" @keyup.enter="getMoviesSeries">
   <button @click="getMoviesSeries">ottieni</button>
 
+  <div class="lista">
 
+    <Film v-for="movie in (store.movieList)" :msg="movie" :tipo="'film'" />
+    <!-- anche per le serie uso il componente che si chiama Film -->
+    <Film v-for="movie in (store.serieList)" :msg="movie" :tipo="'serie'" />
 
-  <Film v-for="movie in (store.movieList)" :msg="movie" :tipo="'film'" />
-  <!-- anche per le serie uso il componente che si chiama Film -->
-  <Film v-for="movie in (store.serieList)" :msg="movie" :tipo="'serie'" />
+  </div>
 
 </template>
 
@@ -91,5 +93,8 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
